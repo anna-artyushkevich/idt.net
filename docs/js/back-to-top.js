@@ -1,0 +1,95 @@
+$(document).ready(function(){
+    $(window).scroll(function(){
+        if ($(this).scrollTop() > 100) {
+            $('#backToTop').fadeIn();
+        } else {
+            $('#backToTop').fadeOut();
+        }
+    });
+    $(window).scroll(function(){
+        if ($(this).scrollTop() > 100) {
+            $('#chatBot').fadeIn();
+        } else {
+            $('#chatBot').fadeOut();
+        }
+    });
+    $('#backToTop').click(function(){
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+    });
+
+	// grab the initial top offset of the navigation
+   	var stickyNavTop = $('.header').offset().top;
+
+   	// our function that decides weather the navigation bar should have "fixed" css position or not.
+   	var stickyNav = function(){
+	    var scrollTop = $(window).scrollTop(); // our current vertical position from the top
+
+	    // if we've scrolled more than the navigation, change its position to fixed to stick to top,
+	    // otherwise change it back to relative
+	    if (scrollTop > stickyNavTop) {
+	        $('.header').addClass('header-sticky');
+	    } else {
+	        $('.header').removeClass('header-sticky');
+	    }
+	};
+
+    $('a[href*="#"]').on('click', function (e) {
+		//e.preventDefault();
+		//$(document).off("scroll");
+
+		$('a[href*="#"]').each(function () {
+			$(this).removeClass('active-anchor');
+		})
+		$(this).addClass('active-anchor');
+
+        // var target = this.hash;
+        // $target = $(target);
+        // console.log("target: " + target);
+        // var refElement = $(this).attr("href");
+        // var urlTarget = $(this).data( "url" );
+        // alert("href: "+refElement);
+        // var url = window.location;
+        // var url1 = window.location.href;
+        //
+        // alert("url: "+url+" / "+url1);
+        //var containsUrl = url.indexOf(urlTarget) >= 0;
+
+        // alert("containsUrl: "+containsUrl);
+        //
+        // if (containsUrl) {
+        //     window.location.href = '/index.html';
+        // }
+		// var target = this.hash;
+		// $target = $(target);
+		// $('html, body').stop().animate({
+		// 	'scrollTop': $target.offset().top+2
+		// }, 500, 'swing', function () {
+		// 	window.location.hash = target;
+		// 	$(document).on("scroll", onScroll);
+		// });
+	});
+
+    function onScroll(event){
+		var scrollPosition = $(document).scrollTop();
+        scrollPosition = scrollPosition + 90;
+		$('.active .link-parent-content .link').each(function () {
+			var currentLink = $(this);
+			var refElement = $(currentLink.attr("href"));
+			if (refElement.position().top <= scrollPosition && refElement.position().top + refElement.height() > scrollPosition) {
+				$('.active .link-parent-content .link').removeClass("active-anchor");
+				currentLink.addClass("active-anchor");
+			}
+			else{
+				currentLink.removeClass("active-anchor");
+			}
+		});
+	}
+
+    stickyNav();
+    // and run it again every time you scroll
+    $(window).scroll(function() {
+        stickyNav();
+        onScroll();
+    });
+});

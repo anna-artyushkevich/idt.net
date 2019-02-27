@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="32" width="24">
+  <defs>
+    <path id="path-0" opacity="1" fill-rule="evenodd" d="M18.196699141100908,25 L10.026699141100908,25 L13.606699141100908,21.41 L12.196699141100908,20 L6.196699141100908,26 L12.196699141100908,32 L13.606699141100908,30.59 L10.026699141100908,27 L18.196699141100908,27 L18.196699141100908,25Z"/>
+    <path id="path-1" opacity="1" fill-rule="evenodd" d="M18.196699141100908,5 L10.026699141100908,5 L13.606699141100908,1.4100000000000001 L12.196699141100908,0 L6.196699141100908,6 L12.196699141100908,12 L13.606699141100908,10.59 L10.026699141100908,7 L18.196699141100908,7 L18.196699141100908,5Z"/>
+    <rect id="rect-2" opacity="1" x="0" y="15" width="24" height="2"/>
+  </defs>
+  <g transform="translate(12, 16) scale(-1, -1) translate(-12, -16)" opacity="1">
+    <g transform="translate(12.196699141100908, 26) scale(-1, 1) translate(-12.196699141100908, -26) translate(12.196699141100908, 26) rotate(90.00003218077504) translate(-12.196699141100908, -26)" opacity="1">
+      <use xlink:href="#path-0" fill="rgb(130,130,130)" fill-opacity="1"/>
+    </g>
+    <g transform="translate(12.196699141100908, 6) scale(-1, -1) translate(-12.196699141100908, -6) translate(12.196699141100908, 6) rotate(90.00003218077504) translate(-12.196699141100908, -6)" opacity="1">
+      <use xlink:href="#path-1" fill="rgb(130,130,130)" fill-opacity="1"/>
+    </g>
+    <g opacity="1">
+      <use xlink:href="#rect-2" fill="rgb(130,130,130)" fill-opacity="1"/>
+    </g>
+  </g>
+</svg>

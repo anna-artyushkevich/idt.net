@@ -3,20 +3,21 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="shortcut icon" href="img/favicon.ico">
+        <link rel="shortcut icon" href="/img/favicon.ico">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
-        <link href="css/styles.css" rel="stylesheet">
+        <link href="/css/styles.css" rel="stylesheet">
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript" src="js/back-to-top.js"></script>
+        <script type="text/javascript" src="/js/back-to-top.js"></script>
     </head>
-    <body class="allpage">
+    <body class="allpage mobile">
         <section class="header row row-center-xs">
             <div class="col-xs-12 col-md-11 col-lg-10 col-flex-xs header-content">
                 <div class="nav row row-between-xs row-middle-xs space-out-h-zero-xs space-in-h-micro-xs">
-                    <a href="index.html" class="logo col-xs-shrink space-in-h-zero-xs">
-                        <img src="img/logo-idt.png" alt="IDT" srcset="img/logo-idt.svg">
+                    <div id="menuIcon" class="menu-icon"></div>
+                    <a href="index.html" data-url="Contact&nbsp;Us" class="logo col-xs-shrink space-in-h-zero-xs">
+                        <img src="/img/logo-idt.png" alt="IDT" srcset="/img/logo-idt.svg">
                     </a>
-                    <div class="menu col-xs-shrink col-flex-xs space-in-right-zero-xs">
+                    <div id="menu" class="menu col-xs-shrink col-flex-xs space-in-right-zero-xs">
                         <div class="menu-secondary row row-end-xs">
                             <a href="blog.html" class="link-small col-xs-shrink"><small>Technology Blog</small></a>
                             <a href="contact.html" class="link-small col-xs-shrink"><small>Contact Us</small></a>
@@ -27,17 +28,17 @@
                                 <div class="link-parent-content row row-center-xs">
                                     <a href="#products1" data-url="products.html" class="link col-xs-shrink" onclick="window.location = 'products.html#products1';">CONSUMER</a>
                                     <a href="#products2" data-url="products.html" class="link col-xs-shrink" onclick="window.location = 'products.html#products2';">BUSINESS</a>
-                                    <a href="#products3" data-url="products.html" class="link col-xs-shrink" onclick="window.location = 'products.html#products2';">RESELLER / PARTNERS</a>
+                                    <a href="#products3" data-url="products.html" class="link col-xs-shrink" onclick="window.location = 'products.html#products3';">RESELLER / PARTNERS</a>
                                 </div>
                             </div>
-                            <div class="link-parent active col-xs-shrink">
+                            <div class="link-parent col-xs-shrink">
                                 <a href="careers.html" class="link">Careers</a>
                                 <div class="link-parent-content row row-center-xs">
-                                    <a href="#careers1" class="link active-anchor col-xs-shrink" onclick="window.location = 'careers.html#careers1';">ABOUT IDT</a>
-                                    <a href="#careers2" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers2';">CULTURE</a>
-                                    <a href="#careers3" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers3';">VALUES</a>
-                                    <a href="#careers4" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers4';">BENEFITS</a>
-                                    <a href="#careers5" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers5';">CURRENT OPENINGS</a>
+                                    <a href="#careers1" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers1';">ABOUT IDT</a>
+                                    <a href="#careers2" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers2';">CURRENT OPENINGS</a>
+                                    <a href="#careers3" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers3';">CULTURE</a>
+                                    <a href="#careers4" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers4';">VALUES</a>
+                                    <a href="#careers5" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers5';">BENEFITS</a>
                                 </div>
                             </div>
                             <div class="link-parent col-xs-shrink">
@@ -64,35 +65,20 @@
                                 </div>
                             </div>
                             <a href="blog.html" class="menu-secondary-sticky link link-small col-xs-shrink"><small>Technology Blog</small></a>
-                            <a href="contact.html" class="menu-secondary-sticky link link-small col-xs-shrink"><small>Contact Us</small></a>
+                            <a href="contact.html" class="menu-secondary-sticky link active link-small col-xs-shrink"><small>Contact Us</small></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="careers1" class="careers p1">
-            <img src="img/desktop-careers1.png" alt="">
-        </section>
-        <section id="careers2" class="careers p2">
-            <img src="img/desktop-careers2.png" alt="">
-        </section>
-        <section id="careers3" class="careers p3">
-            <img src="img/desktop-careers3.png" alt="">
-        </section>
-        <section id="careers4" class="careers p4">
-            <img src="img/desktop-careers4.png" alt="">
-        </section>
-        <section id="careers5" class="careers p5">
-            <img src="img/desktop-careers5.png" alt="">
+        <section class="contact p1">
+            <img src="/img/m-contact.png" alt="">
         </section>
         <footer class="">
-            <img src="img/desktop-footer.jpg" alt="">
+            <img src="/img/m-footer.jpg" alt="">
         </footer>
         <div id="backToTop" class="back-to-top">
-            <a href="#top"><img src="img/back-to-top.svg" alt="back to top"></a>
-        </div>
-        <div id="chatBot" class="chat-bot">
-            <a href="#"><img src="img/chat-bot_desktop.png" alt="chat bot"></a>
+            <a href="#top"><img src="/img/back-to-top.svg" alt="back to top"></a>
         </div>
     </body>
 </html>

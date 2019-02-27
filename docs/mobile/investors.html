@@ -3,20 +3,21 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="shortcut icon" href="img/favicon.ico">
+        <link rel="shortcut icon" href="/img/favicon.ico">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
-        <link href="css/styles.css" rel="stylesheet">
+        <link href="/css/styles.css" rel="stylesheet">
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript" src="js/back-to-top.js"></script>
+        <script type="text/javascript" src="/js/back-to-top.js"></script>
     </head>
-    <body class="allpage">
-        <section class="header header-home row row-center-xs">
+    <body class="allpage mobile">
+        <section class="header row row-center-xs">
             <div class="col-xs-12 col-md-11 col-lg-10 col-flex-xs header-content">
                 <div class="nav row row-between-xs row-middle-xs space-out-h-zero-xs space-in-h-micro-xs">
-                    <a href="index.html" class="logo col-xs-shrink space-in-h-zero-xs">
-                        <img src="img/logo-idt.png" alt="IDT" srcset="img/logo-idt.svg">
+                    <div id="menuIcon" class="menu-icon"></div>
+                    <a href="index.html" data-url="Investors&nbsp;&&nbsp;Media" class="logo col-xs-shrink space-in-h-zero-xs">
+                        <img src="/img/logo-idt.png" alt="IDT" srcset="/img/logo-idt.svg">
                     </a>
-                    <div class="menu col-xs-shrink col-flex-xs space-in-right-zero-xs">
+                    <div id="menu" class="menu col-xs-shrink col-flex-xs space-in-right-zero-xs">
                         <div class="menu-secondary row row-end-xs">
                             <a href="blog.html" class="link-small col-xs-shrink"><small>Technology Blog</small></a>
                             <a href="contact.html" class="link-small col-xs-shrink"><small>Contact Us</small></a>
@@ -27,17 +28,17 @@
                                 <div class="link-parent-content row row-center-xs">
                                     <a href="#products1" data-url="products.html" class="link col-xs-shrink" onclick="window.location = 'products.html#products1';">CONSUMER</a>
                                     <a href="#products2" data-url="products.html" class="link col-xs-shrink" onclick="window.location = 'products.html#products2';">BUSINESS</a>
-                                    <a href="#products3" data-url="products.html" class="link col-xs-shrink" onclick="window.location = 'products.html#products2';">RESELLER / PARTNERS</a>
+                                    <a href="#products3" data-url="products.html" class="link col-xs-shrink" onclick="window.location = 'products.html#products3';">RESELLER / PARTNERS</a>
                                 </div>
                             </div>
                             <div class="link-parent col-xs-shrink">
                                 <a href="careers.html" class="link">Careers</a>
                                 <div class="link-parent-content row row-center-xs">
                                     <a href="#careers1" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers1';">ABOUT IDT</a>
-                                    <a href="#careers2" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers2';">CULTURE</a>
-                                    <a href="#careers3" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers3';">VALUES</a>
-                                    <a href="#careers4" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers4';">BENEFITS</a>
-                                    <a href="#careers5" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers5';">CURRENT OPENINGS</a>
+                                    <a href="#careers2" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers2';">CURRENT OPENINGS</a>
+                                    <a href="#careers3" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers3';">CULTURE</a>
+                                    <a href="#careers4" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers4';">VALUES</a>
+                                    <a href="#careers5" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers5';">BENEFITS</a>
                                 </div>
                             </div>
                             <div class="link-parent col-xs-shrink">
@@ -48,10 +49,10 @@
                                     <a href="#about3" class="link col-xs-shrink" onclick="window.location = 'about.html#about3';">CHARITABLE WORKS</a>
                                 </div>
                             </div>
-                            <div class="link-parent link-dropdown col-xs-shrink">
+                            <div class="link-parent active link-dropdown col-xs-shrink">
                                 <a href="investors.html" class="link">Investors & Media</a>
                                 <div class="link-parent-content row row-end-xs col-flex-xs">
-                                    <a href="investors-ar.html" class="link col-xs-shrink">ANNUAL REPORTS</a>
+                                    <a href="investors-ar.html" class="link active-anchor col-xs-shrink">ANNUAL REPORTS</a>
                                     <a href="#" class="link col-xs-shrink">INVESTORS PRESENTATIONS</a>
                                     <a href="#" class="link col-xs-shrink">SEC FILLINGS</a>
                                     <a href="#" class="link col-xs-shrink">PRESS RELEASES</a>
@@ -69,15 +70,56 @@
                     </div>
                 </div>
             </div>
+            <div class="breadcrumbs">
+                <div class="title">SHOW:</div>
+                <div class="value" data-breadcrumb="ANNUAL REPORTS">
+                    <div class="values">
+                        <a href="investors-ar.html" class="link">ANNUAL&nbsp;REPORTS</a>
+                        <a href="#" class="link">INVESTORS&nbsp;PRESENTATIONS</a>
+                        <a href="#" class="link">SEC&nbsp;FILLINGS</a>
+                        <a href="#" class="linkk">PRESS&nbsp;RELEASES</a>
+                        <a href="investors-qe.html" class="link">QUARTERLY&nbsp;EARNINGS</a>
+                        <a href="#" class="link">PROXIES & STOCKHOLDER&nbsp;MEETINGS</a>
+                        <a href="#" class="link">DIVIDENDS</a>
+                        <a href="#" class="link">TAX DOCS</a>
+                        <a href="#" class="link">GOVERNANCE</a>
+                        <a href="#" class="link">BOARD&nbsp;OF&nbsp;DIRECTORS</a>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section class="home p1">
-            <img src="img/desktop-home.png" alt="">
+        <section class="investors">
+            <div class="section-dynamic">
+                <div class="section-icon"></div>
+                <img class="short" src="/img/m-investors1.png" alt="">
+                <img class="full" src="/img/m-investors1e.png" alt="">
+            </div>
+        </section>
+        <section class="investors">
+            <div class="section-dynamic section-dynamic-investors">
+                <div class="section-icon"></div>
+                <img class="short" src="/img/m-investors2.png" alt="">
+                <img class="cta-short" src="/img/m-investors2-1.png" alt="" onclick="window.location = 'investors-ar.html';">
+                <img class="cta-short" src="/img/m-investors2-2.png" alt="">
+                <img class="cta-short" src="/img/m-investors2-3.png" alt="">
+                <img class="cta-short" src="/img/m-investors2-4.png" alt="" onclick="window.location = 'investors-qe.html';">
+                <img class="cta-short" src="/img/m-investors2-5.png" alt="">
+                <img class="full" src="/img/m-investors2e.png" alt="">
+                <img class="cta-full" src="/img/m-investors2-1e.png" alt="">
+                <img class="cta-full" src="/img/m-investors2-2e.png" alt="">
+                <img class="cta-full" src="/img/m-investors2-3e.png" alt="">
+                <img class="cta-full" src="/img/m-investors2-4e.png" alt="">
+                <img class="cta-full" src="/img/m-investors2-5e.png" alt="">
+            </div>
+        </section>
+        <section class="investors">
+            <img class="short" src="/img/m-investors3.png" alt="">
         </section>
         <footer class="">
-            <img src="img/desktop-footer.jpg" alt="">
+            <img src="/img/m-footer.jpg" alt="">
         </footer>
         <div id="backToTop" class="back-to-top">
-            <a href="#top"><img src="img/back-to-top.svg" alt="back to top"></a>
+            <a href="#top"><img src="/img/back-to-top.svg" alt="back to top"></a>
         </div>
     </body>
 </html>

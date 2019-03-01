@@ -101,6 +101,26 @@ $(document).ready(function(){
         $(this).parent().toggleClass('active');
     });
 
+    $('.block-1').click(function() {
+        $(this).parents(".section-dynamic-dir").toggleClass('active-1');
+    });
+
+    $('.block-3').click(function() {
+        $(this).parents(".section-dynamic-dir").toggleClass('active-3');
+    });
+
+    $('.block-2').click(function() {
+        $(this).parents(".section-dynamic-dir").toggleClass('active-2');
+    });
+
+    $('.inv-dir-action').click(function() {
+        $(this).parent().toggleClass('active');
+    });
+
+    $('.inv-dir-popup').click(function() {
+        $(this).parent().toggleClass('active');
+    });
+
     function onScroll(event){
 		var scrollPosition = $(document).scrollTop();
         scrollPosition = scrollPosition + 90;

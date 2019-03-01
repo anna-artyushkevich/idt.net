@@ -93,6 +93,10 @@ $(document).ready(function(){
         $(this).parent().toggleClass('active');
     });
 
+    $('.section-dynamic-inv').click(function() {
+        $(this).toggleClass('active');
+    });
+
     $('.cta').click(function() {
         $(this).parent().toggleClass('active');
     });

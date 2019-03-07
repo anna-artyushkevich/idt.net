@@ -101,17 +101,39 @@ $(document).ready(function(){
         $(this).parent().toggleClass('active');
     });
 
-    $('.block-1').click(function() {
+    $('.investors-dir-block.block-1').click(function() {
         $(this).parents(".section-dynamic-dir").toggleClass('active-1');
     });
 
-    $('.block-3').click(function() {
+    $('.investors-dir-block.block-2').click(function() {
+        $(this).parents(".section-dynamic-dir").toggleClass('active-2');
+    });
+
+    $('.investors-dir-block.block-3').click(function() {
         $(this).parents(".section-dynamic-dir").toggleClass('active-3');
     });
 
-    $('.block-2').click(function() {
-        $(this).parents(".section-dynamic-dir").toggleClass('active-2');
+
+    $('.contact-block.block-1').click(function() {
+        $(this).parents(".section-dynamic-contact").toggleClass('active-2');
     });
+
+    $('.contact-block.block-2-1').click(function() {
+        $(this).parents(".section-dynamic-contact").toggleClass('active-2');
+    });
+
+    $('.contact-block.block-2-3').click(function() {
+        $(this).parents(".section-dynamic-contact").toggleClass('active-2 active-3');
+    });
+
+    $('.contact-block.block-3-1').click(function() {
+        $(this).parents(".section-dynamic-contact").toggleClass('active-3');
+    });
+
+    $('.contact-block.block-3-2').click(function() {
+        $(this).parents(".section-dynamic-contact").toggleClass('active-2 active-3');
+    });
+
 
     $('.inv-dir-action').click(function() {
         $(this).parent().toggleClass('active');

@@ -78,6 +78,22 @@ $(document).ready(function(){
         $('.header').toggleClass('header-mobile');
     });
 
+    $('#menuIconMapOpen').on('click', function (e) {
+        $('.header-map').toggleClass('map');
+    });
+
+    $('#menuIconMapClose').on('click', function (e) {
+        $('.header-map').toggleClass('map');
+    });
+
+    $('#menuIconMapStickyOpen').on('click', function (e) {
+        $('.header-map').toggleClass('map');
+    });
+
+    $('#menuIconMapStickyClose').on('click', function (e) {
+        $('.header-map').toggleClass('map');
+    });
+
     $('.value').on('click', function (e) {
         $('.values').fadeToggle();
     });

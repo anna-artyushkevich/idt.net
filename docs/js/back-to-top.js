@@ -299,7 +299,7 @@ $(document).ready(function(){
                     up.attr("href", href);
                 }
             } else {
-                if ((refElement.position().top <= scrollTopPosition) && ((refElement.position().top + refElement.height()) > scrollBottomPosition)) {
+                if ((refElement.position().top < scrollTopPosition || refElement.position().top > scrollTopPosition && refElement.position().top < scrollBottomPosition) && refElement.position().top + refElement.height() > scrollBottomPosition) {
                     var top = refElement.position().top;
                     var height = refElement.height();
                     console.log("top: " + top + " / height: " + height + " / scrollTopPosition: " + scrollTopPosition + " / scrollBottomPosition: " + scrollBottomPosition);
@@ -361,7 +361,7 @@ $(document).ready(function(){
                     console.log("up: " + up.attr("href") + " / down: " + down.attr("href"));
                     nextLink = undefined;
                     backLink = undefined;
-                } else if (currentLink.is(":last-child") && refElement.position().top + refElement.height() < scrollTopPosition) {
+                } else if (currentLink.is(":last-child") && refElement.position().top + refElement.height() < scrollBottomPosition) {
                     nextBreadCrumb = currentLink.attr("data-breadcrumb");
                     $('.value-new').attr("data-breadcrumb", nextBreadCrumb);
                     if (title.hasClass("vis")) {

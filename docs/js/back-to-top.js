@@ -5,15 +5,16 @@ $(document).ready(function(){
         } else {
             $('#backToTop').fadeOut();
         }
-    });
-    $(window).scroll(function(){
         if ($(this).scrollTop() > 30) {
             $('#breadcrumbsNew').fadeIn("slow");
         } else {
             $('#breadcrumbsNew').fadeOut("slow");
         }
-    });
-    $(window).scroll(function(){
+        if ($(this).scrollTop() > 30) {
+            $('#breadcrumbsNewOne').fadeIn("slow");
+        } else {
+            $('#breadcrumbsNewOne').fadeOut("slow");
+        }
         if ($(this).scrollTop() > 100) {
             $('#chatBot').fadeIn();
         } else {
@@ -369,6 +370,159 @@ $(document).ready(function(){
                     }
                     $('.title').attr("data-title", 'UP');
                 }
+            }
+        });
+
+        $('#breadcrumbsNewOne .values .link').each(function () {
+            var currentLink = $(this);
+            var refElement = $(currentLink.attr("href"));
+            var breadCrumb = $(this).attr("data-breadcrumb");
+            var up = $('.up');
+            var down = $('.down');
+            var value = $('.value');
+            var href = undefined;
+            var nextLink = undefined;
+            var backLink = undefined;
+            var data = undefined;
+            var nextRefElement = undefined;
+            var nextHref = undefined;
+            var nextBreadCrumb = undefined;
+
+            if (dataScrollDirection) {
+                if (refElement.position().top <= scrollBottomPosition && refElement.position().top + refElement.height() > scrollBottomPosition) {
+                    var top = refElement.position().top;
+                    var height = refElement.height();
+                    console.log("top: " + top + " / height: " + height + " / scrollBottomPosition: " + scrollBottomPosition);
+                    console.log("current refElement: " + refElement.attr('id') + " / current breadCrumb: " + breadCrumb);
+                    console.log("dataScrollDirection: " + dataScrollDirection);
+
+                    nextLink = $(this).next();
+                    console.log("---------------------");
+                    console.log("refElement: " + refElement.attr('id') + " / breadCrumb: " + breadCrumb);
+
+                    if (nextLink.length) {
+                        nextRefElement = $(nextLink.attr("href"));
+                        nextHref = nextLink.attr("href");
+                        nextBreadCrumb = $(nextLink).attr("data-breadcrumb");
+                        if (down.hasClass("vis")) {
+                            down.removeClass("vis");
+                        }
+                        if (!down.hasClass("w")) {
+                            down.addClass("w");
+                        }
+                        if (up.hasClass("w")) {
+                            up.removeClass("w");
+                        }
+                        if (value.hasClass("vis")) {
+                            value.removeClass("vis");
+                        }
+                        console.log("nextRefElement: " + nextRefElement.attr('id') + " / nextBreadCrumb: " + nextBreadCrumb);
+                    } else {
+                        nextRefElement = 'The end';
+                        nextHref = '#';
+                        breadCrumb = 'SELECT WHERE TO JUMP...';
+                        if (!down.hasClass("vis")) {
+                            down.addClass("vis");
+                        }
+                        if (down.hasClass("w")) {
+                            down.removeClass("w");
+                        }
+                        if (!value.hasClass("vis")) {
+                            value.addClass("vis");
+                        }
+                        console.log("nextRefElement: " + nextRefElement + " / nextBreadCrumb: " + nextBreadCrumb);
+                    }
+
+                    backLink = $(this).prev();
+                    if (backLink.length) {
+                        href = backLink.attr("href");
+                        up.attr("href", href);
+                        if (up.hasClass("vis")) {
+                            up.removeClass("vis");
+                        }
+                    } else {
+                        if (!up.hasClass("vis")) {
+                            up.addClass("vis");
+                        }
+                    }
+                    down.attr("href", nextHref);
+                    console.log("up: " + up.attr("href") + " / down: " + down.attr("href"));
+                    nextLink = undefined;
+                    backLink = undefined;
+                    if (currentLink.is(":last-child")) {
+                      console.log("last");
+                    }
+                } else if (currentLink.is(":last-child") && refElement.position().top + refElement.height() < scrollBottomPosition && refElement.position().top + refElement.height() >= scrollTopPosition) {
+                    href = currentLink.attr("href");
+                    up.attr("href", href);
+                }
+            } else {
+                if ((refElement.position().top < scrollTopPosition || refElement.position().top > scrollTopPosition && refElement.position().top < scrollBottomPosition) && refElement.position().top + refElement.height() > scrollBottomPosition) {
+                    var top = refElement.position().top;
+                    var height = refElement.height();
+                    console.log("top: " + top + " / height: " + height + " / scrollTopPosition: " + scrollTopPosition + " / scrollBottomPosition: " + scrollBottomPosition);
+                    console.log("current refElement: " + refElement.attr('id') + " / current breadCrumb: " + breadCrumb);
+                    console.log("dataScrollDirection: " + dataScrollDirection);
+
+                    nextLink = $(this).prev();
+                    console.log("---------------------");
+                    console.log("refElement: " + refElement.attr('id') + " / breadCrumb: " + breadCrumb);
+
+                    if (nextLink.length) {
+                        nextRefElement = $(nextLink.attr("href"));
+                        nextHref = nextLink.attr("href");
+                        nextBreadCrumb = $(nextLink).attr("data-breadcrumb");
+                        if (up.hasClass("vis")) {
+                            up.removeClass("vis");
+                        }
+                        if (!up.hasClass("w")) {
+                            up.addClass("w");
+                        }
+                        if (down.hasClass("w")) {
+                            down.removeClass("w");
+                        }
+                        if (value.hasClass("vis")) {
+                            value.removeClass("vis");
+                        }
+                        console.log("nextRefElement: " + nextRefElement.attr('id') + " / nextBreadCrumb: " + nextBreadCrumb);
+                    } else {
+                        nextRefElement = 'The end';
+                        nextHref = '#';
+                        //breadCrumb = 'WHERE TO JUMP...';
+                        if (!up.hasClass("vis")) {
+                            up.addClass("vis");
+                        }
+                        if (up.hasClass("w")) {
+                            up.removeClass("w");
+                        }
+                        console.log("nextRefElement: " + nextRefElement + " / nextBreadCrumb: " + nextBreadCrumb);
+                    }
+
+                    backLink = $(this).next();
+                    if (backLink.length) {
+                        href = backLink.attr("href");
+                        down.attr("href", href);
+                        if (down.hasClass("vis")) {
+                            down.removeClass("vis");
+                        }
+                    } else {
+                        if (!down.hasClass("vis")) {
+                            down.addClass("vis");
+                        }
+                    }
+                    up.attr("href", nextHref);
+                    console.log("up: " + up.attr("href") + " / down: " + down.attr("href"));
+                    nextLink = undefined;
+                    backLink = undefined;
+                }  else if (currentLink.is(":last-child") && refElement.position().top + refElement.height() < scrollBottomPosition && refElement.position().top + refElement.height() >= scrollTopPosition) {
+                      if (!up.hasClass("w")) {
+                          up.addClass("w");
+                      }
+                }
+            }
+
+            if (refElement.position().top <= scrollBottomPosition && refElement.position().top + refElement.height() > scrollBottomPosition) {
+                $('.value').attr("data-breadcrumb", breadCrumb);
             }
         });
     }

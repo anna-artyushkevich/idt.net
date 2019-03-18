@@ -420,15 +420,11 @@ $(document).ready(function(){
                     } else {
                         nextRefElement = 'The end';
                         nextHref = '#';
-                        breadCrumb = 'SELECT WHERE TO JUMP...';
                         if (!down.hasClass("vis")) {
                             down.addClass("vis");
                         }
                         if (down.hasClass("w")) {
                             down.removeClass("w");
-                        }
-                        if (!value.hasClass("vis")) {
-                            value.addClass("vis");
                         }
                         console.log("nextRefElement: " + nextRefElement + " / nextBreadCrumb: " + nextBreadCrumb);
                     }
@@ -452,7 +448,15 @@ $(document).ready(function(){
                     if (currentLink.is(":last-child")) {
                       console.log("last");
                     }
-                } else if (currentLink.is(":last-child") && refElement.position().top + refElement.height() < scrollBottomPosition && refElement.position().top + refElement.height() >= scrollTopPosition) {
+                } else if (currentLink.is(":last-child") && refElement.position().top + refElement.height() < scrollBottomPosition && refElement.position().top + refElement.height() >= scrollTopPosition) { // if current section is last and it's end is higher then viewport's bottom
+                    breadCrumb = 'SELECT WHERE TO JUMP...';
+                    if (!value.hasClass("vis")) {
+                        value.addClass("vis");
+                    }
+
+                    nextLink = undefined;
+                    backLink = undefined;
+
                     href = currentLink.attr("href");
                     up.attr("href", href);
                 }
@@ -518,10 +522,13 @@ $(document).ready(function(){
                       if (!up.hasClass("w")) {
                           up.addClass("w");
                       }
+                      breadCrumb = 'SELECT WHERE TO JUMP...';
                 }
             }
 
             if (refElement.position().top <= scrollBottomPosition && refElement.position().top + refElement.height() > scrollBottomPosition) {
+                $('.value').attr("data-breadcrumb", breadCrumb);
+            } else if (currentLink.is(":last-child") && refElement.position().top + refElement.height() < scrollBottomPosition && refElement.position().top + refElement.height() >= scrollTopPosition) {
                 $('.value').attr("data-breadcrumb", breadCrumb);
             }
         });

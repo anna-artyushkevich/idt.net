@@ -10,11 +10,6 @@ $(document).ready(function(){
         } else {
             $('#breadcrumbsNew').fadeOut("slow");
         }
-        if ($(this).scrollTop() > 30) {
-            $('#breadcrumbsNewOne').fadeIn("slow");
-        } else {
-            $('#breadcrumbsNewOne').fadeOut("slow");
-        }
         if ($(this).scrollTop() > 100) {
             $('#chatBot').fadeIn();
         } else {
@@ -44,7 +39,7 @@ $(document).ready(function(){
 	    } else {
 	        $('.header').removeClass('header-sticky');
 	    }
-	};
+	  };
 
     $('a[href*="#"]').on('click', function (e) {
 		//e.preventDefault();
@@ -130,17 +125,24 @@ $(document).ready(function(){
     });
 
     $('.investors-dir-block.block-1').click(function() {
-        $(this).parents(".section-dynamic-dir").toggleClass('active-1');
+        var section = $(this).parents(".section-dynamic-dir");
+        section.toggleClass('active-1');
+        if (section.hasClass('active-3')) {
+            section.removeClass('active-3');
+        }
     });
 
     $('.investors-dir-block.block-2').click(function() {
-        $(this).parents(".section-dynamic-dir").toggleClass('active-2');
+        var section = $(this).parents(".section-dynamic-dir");
+        section.toggleClass('active-2');
+        if (section.hasClass('active-3')) {
+            section.removeClass('active-3');
+        }
     });
 
     $('.investors-dir-block.block-3').click(function() {
         $(this).parents(".section-dynamic-dir").toggleClass('active-3');
     });
-
 
     $('.contact-block.block-1').click(function() {
         $(this).parents(".section-dynamic-contact").toggleClass('active-2');
@@ -373,6 +375,7 @@ $(document).ready(function(){
             }
         });
 
+        scrollTopPosition = scrollTopPosition + 103;
         $('#breadcrumbsNewOne .values .link').each(function () {
             var currentLink = $(this);
             var refElement = $(currentLink.attr("href"));
@@ -389,7 +392,7 @@ $(document).ready(function(){
             var nextBreadCrumb = undefined;
 
             if (dataScrollDirection) {
-                if (refElement.position().top <= scrollBottomPosition && refElement.position().top + refElement.height() > scrollBottomPosition) {
+                if (refElement.position().top <= scrollTopPosition && refElement.position().top + refElement.height() > scrollBottomPosition) {
                     var top = refElement.position().top;
                     var height = refElement.height();
                     console.log("top: " + top + " / height: " + height + " / scrollBottomPosition: " + scrollBottomPosition);
@@ -420,8 +423,10 @@ $(document).ready(function(){
                     } else {
                         nextRefElement = 'The end';
                         nextHref = '#';
-                        if (!down.hasClass("vis")) {
-                            down.addClass("vis");
+                        if (currentLink.is(":last-child")) {
+                            if (!down.hasClass("vis")) {
+                                down.addClass("vis");
+                            }
                         }
                         if (down.hasClass("w")) {
                             down.removeClass("w");
@@ -448,7 +453,7 @@ $(document).ready(function(){
                     if (currentLink.is(":last-child")) {
                       console.log("last");
                     }
-                } else if (currentLink.is(":last-child") && refElement.position().top + refElement.height() < scrollBottomPosition && refElement.position().top + refElement.height() >= scrollTopPosition) { // if current section is last and it's end is higher then viewport's bottom
+                } else if (currentLink.is(":last-child") && refElement.position().top + refElement.height() <= scrollTopPosition) { // if current section is last and it's end is higher then viewport's bottom
                     breadCrumb = 'SELECT WHERE TO JUMP...';
                     if (!value.hasClass("vis")) {
                         value.addClass("vis");
@@ -522,13 +527,18 @@ $(document).ready(function(){
                       if (!up.hasClass("w")) {
                           up.addClass("w");
                       }
-                      breadCrumb = 'SELECT WHERE TO JUMP...';
+                      if (value.hasClass("vis")) {
+                          value.removeClass("vis");
+                      }
+                      //breadCrumb = 'SELECT WHERE TO JUMP...';
                 }
             }
 
-            if (refElement.position().top <= scrollBottomPosition && refElement.position().top + refElement.height() > scrollBottomPosition) {
+            if (refElement.position().top <= scrollTopPosition && refElement.position().top + refElement.height() > scrollBottomPosition) {
                 $('.value').attr("data-breadcrumb", breadCrumb);
-            } else if (currentLink.is(":last-child") && refElement.position().top + refElement.height() < scrollBottomPosition && refElement.position().top + refElement.height() >= scrollTopPosition) {
+            } else if (currentLink.is(":last-child") && refElement.position().top + refElement.height() < scrollTopPosition) {
+                $('.value').attr("data-breadcrumb", 'SELECT WHERE TO JUMP...');
+            } else if (currentLink.is(":last-child") && refElement.position().top <= scrollBottomPosition && refElement.position().top + refElement.height() < scrollBottomPosition && refElement.position().top + refElement.height() >= scrollTopPosition) {
                 $('.value').attr("data-breadcrumb", breadCrumb);
             }
         });

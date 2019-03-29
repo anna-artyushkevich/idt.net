@@ -5,11 +5,6 @@ $(document).ready(function(){
         } else {
             $('#backToTop').fadeOut();
         }
-        if ($(this).scrollTop() > 100) {
-            $('#chatBot').fadeIn();
-        } else {
-            $('#chatBot').fadeOut();
-        }
     });
     $('#backToTop').click(function(){
         $("html, body").animate({ scrollTop: 0 }, 600);
@@ -499,7 +494,7 @@ $(document).ready(function(){
                       console.log("last");
                     }
                 } else if (currentLink.is(":last-child") && refElement.position().top + refElement.height() <= scrollTopPosition) { // if current section is last and it's end is higher then viewport's bottom
-                    breadCrumb = 'SELECT WHERE TO JUMP...';
+                    breadCrumb = 'MORE...';
                     if (!value.hasClass("vis")) {
                         value.addClass("vis");
                     }
@@ -578,7 +573,7 @@ $(document).ready(function(){
                       if (value.hasClass("vis")) {
                           value.removeClass("vis");
                       }
-                      //breadCrumb = 'SELECT WHERE TO JUMP...';
+                      //breadCrumb = 'MORE...';
                 }
             }
 
@@ -586,7 +581,7 @@ $(document).ready(function(){
             if (refElement.position().top <= scrollTopPosition && refElement.position().top + refElement.height() > scrollBottomPosition) {
                 $('.value').attr("data-breadcrumb", breadCrumb);
             } else if (currentLink.is(":last-child") && refElement.position().top + refElement.height() < scrollTopPosition) {
-                $('.value').attr("data-breadcrumb", 'SELECT WHERE TO JUMP...');
+                $('.value').attr("data-breadcrumb", 'MORE...');
             } else if (currentLink.is(":last-child") && refElement.position().top <= scrollBottomPosition && refElement.position().top + refElement.height() < scrollBottomPosition && refElement.position().top + refElement.height() >= scrollTopPosition) {
                 $('.value').attr("data-breadcrumb", breadCrumb);
             } else if (currentLink.is(":first-child") && refElement.position().top < scrollBottomPosition && refElement.position().top + refElement.height() > scrollBottomPosition) {
@@ -653,7 +648,7 @@ $(document).ready(function(){
                               down.addClass("vis");
                           }
                           if (refElement.position().top + refElement.height() <= scrollTopPosition) {
-                            breadCrumb = 'SELECT WHERE TO JUMP...';
+                            breadCrumb = 'MORE...';
                             if (!value.hasClass("vis")) {
                                 value.addClass("vis");
                             }
@@ -685,7 +680,7 @@ $(document).ready(function(){
                     console.log("last");
                   }
               } else if (currentLink.is(":last-child") && refElement.position().top + refElement.height() <= scrollTopPosition) { // if current section is last and it's end is higher then viewport's bottom
-                  breadCrumb = 'SELECT WHERE TO JUMP...';
+                  breadCrumb = 'MORE...';
                   if (!value.hasClass("vis")) {
                       value.addClass("vis");
                   }
@@ -776,7 +771,7 @@ $(document).ready(function(){
                   if (value.hasClass("vis")) {
                       value.removeClass("vis");
                   }
-                  //breadCrumb = 'SELECT WHERE TO JUMP...';
+                  //breadCrumb = 'MORE...';
               } else if (currentLink.is(":first-child") && refElement.position().top >= scrollTopPosition) {
                   if (!value.hasClass("vis")) {
                       value.addClass("vis");
@@ -788,7 +783,7 @@ $(document).ready(function(){
               $('.value').attr("data-breadcrumb", breadCrumb);
           } else if ((currentLink.is(":last-child") && refElement.position().top + refElement.height() <= scrollTopPosition) || (currentLink.is(":first-child") && refElement.position().top >= scrollTopPosition)) {
               // scroll down after last-child
-              $('.value').attr("data-breadcrumb", 'SELECT WHERE TO JUMP...');
+              $('.value').attr("data-breadcrumb", 'MORE...');
           }
           // else if (currentLink.is(":last-child") && refElement.position().top + refElement.height() <= scrollBottomPosition ) {
           //     // scroll current last-child

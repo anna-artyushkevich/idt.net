@@ -9,7 +9,7 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="../js/back-to-top.js"></script>
     </head>
-    <body class="allpage mobile new">
+    <body class="allpage mobile">
         <section class="header row row-center-xs">
             <div class="col-xs-12 col-md-11 col-lg-10 col-flex-xs header-content">
                 <div class="nav row row-between-xs row-middle-xs space-out-h-zero-xs space-in-h-micro-xs">
@@ -24,6 +24,14 @@
                         </div>
                         <div class="menu-main row row-end-xs space-auto-top-xs">
                             <div class="link-parent col-xs-shrink">
+                                <a href="index.html" class="link">Home</a>
+                                <div class="link-parent-content row row-center-xs">
+                                    <a href="#home1" class="link col-xs-shrink" onclick="window.location = 'index.html#home1';">PRODUCTS</a>
+                                    <a href="#home2" class="link col-xs-shrink" onclick="window.location = 'index.html#home2';">CAREERS</a>
+                                    <a href="#home3" class="link col-xs-shrink" onclick="window.location = 'index.html#home3';">TECHNOLOGY BLOG</a>
+                                </div>
+                            </div>
+                            <div class="link-parent col-xs-shrink">
                                 <a href="products.html" class="link">Products</a>
                                 <div class="link-parent-content row row-center-xs">
                                     <a href="#products1" data-url="products.html" class="link col-xs-shrink" onclick="window.location = 'products.html#products1';">CONSUMER</a>
@@ -34,7 +42,7 @@
                             <div class="link-parent active col-xs-shrink">
                                 <a href="careers.html" class="link">Careers</a>
                                 <div class="link-parent-content row row-center-xs">
-                                    <a href="#careers1" class="link active-anchor col-xs-shrink" onclick="window.location = 'careers.html#careers1';">INNOVATIONS</a>
+                                    <a href="#careers1" class="link active-anchor col-xs-shrink" onclick="window.location = 'careers.html#careers1';">INNOVATION</a>
                                     <a href="#careers2" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers2';">CURRENT OPENINGS</a>
                                     <a href="#careers3" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers3';">CULTURE & VALUES</a>
                                     <a href="#careers4" class="link col-xs-shrink" onclick="window.location = 'careers.html#careers4';">BENEFITS</a>
@@ -71,10 +79,10 @@
                 </div>
             </div>
             <div id="breadcrumbsNewOne" class="breadcrumbs breadcrumbs-top">
-                <a href="#" class="up"></a><a href="#careers2" class="down"></a><div
-                    class="value value-new" data-breadcrumb="INNOVATIONS">
+                <a href="#" class="up link"></a><a href="#careers2" class="down link"></a><div
+                    class="value value-new" data-breadcrumb="INNOVATION">
                     <div class="values">
-                        <a href="#careers1" data-breadcrumb="INNOVATIONS" class="link">INNOVATIONS</a>
+                        <a href="#careers1" data-breadcrumb="INNOVATION" class="link">INNOVATION</a>
                         <a href="#careers2" data-breadcrumb="CURRENT OPENINGS" class="link">CURRENT&nbsp;OPENINGS</a>
                         <a href="#careers3" data-breadcrumb="CULTURE & VALUES" class="link">CULTURE & VALUES</a>
                         <a href="#careers4" data-breadcrumb="BENEFITS" class="link">BENEFITS</a>
@@ -82,7 +90,7 @@
                 </div>
             </div>
         </section>
-        <section id="careers1" class="careers p1">
+        <section id="careers1" class="anchor-first careers p1">
             <img class="full" src="../img/m-careers1e.png" alt="">
         </section>
         <section id="careers2" class="careers p2">

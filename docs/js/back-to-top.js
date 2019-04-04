@@ -630,12 +630,12 @@ $(document).ready(function(){
                       if (down.hasClass("vis")) {
                           down.removeClass("vis");
                       }
-                      if (!down.hasClass("w")) {
-                          down.addClass("w");
-                      }
-                      if (up.hasClass("w")) {
-                          up.removeClass("w");
-                      }
+                      // if (!down.hasClass("w")) {
+                      //     down.addClass("w");
+                      // }
+                      // if (up.hasClass("w")) {
+                      //     up.removeClass("w");
+                      // }
                       if (value.hasClass("vis")) {
                           value.removeClass("vis");
                       }
@@ -654,16 +654,21 @@ $(document).ready(function(){
                             }
                           }
                       }
-                      if (down.hasClass("w")) {
-                          down.removeClass("w");
-                      }
+                      // if (down.hasClass("w")) {
+                      //     down.removeClass("w");
+                      // }
                       console.log("nextRefElement: " + nextRefElement + " / nextBreadCrumb: " + nextBreadCrumb);
                   }
 
                   backLink = $(this).prev();
                   if (backLink.length) {
-                      href = backLink.attr("href");
-                      up.attr("href", href);
+                      if (currentLink.is(":last-child") && refElement.position().top + refElement.height() <= scrollTopPosition) {
+                        href = currentLink.attr("href");
+                        up.attr("href", href);
+                      } else {
+                        href = backLink.attr("href");
+                        up.attr("href", href);
+                      }
                       if (up.hasClass("vis")) {
                           up.removeClass("vis");
                       }
@@ -676,9 +681,6 @@ $(document).ready(function(){
                   console.log("up: " + up.attr("href") + " / down: " + down.attr("href"));
                   nextLink = undefined;
                   backLink = undefined;
-                  if (currentLink.is(":last-child")) {
-                    console.log("last");
-                  }
               } else if (currentLink.is(":last-child") && refElement.position().top + refElement.height() <= scrollTopPosition) { // if current section is last and it's end is higher then viewport's bottom
                   breadCrumb = 'MORE...';
                   if (!value.hasClass("vis")) {
@@ -691,18 +693,18 @@ $(document).ready(function(){
                   href = currentLink.attr("href");
                   up.attr("href", href);
               } else if (currentLink.is(":first-child") && refElement.position().top <= scrollTopPosition && (refElement.position().top + refElement.height() <= scrollBottomPosition || refElement.position().top + refElement.height() >= scrollBottomPosition)) { // if current section is last and it's end is higher then viewport's bottom
-                  if (!down.hasClass("w")) {
-                      down.addClass("w");
-                  }
-                  if (up.hasClass("w")) {
-                      up.removeClass("w");
-                  }
-                  if (value.hasClass("vis")) {
-                      value.removeClass("vis");
-                  }
-
-                  nextLink = undefined;
-                  backLink = undefined;
+                  // if (!down.hasClass("w")) {
+                  //     down.addClass("w");
+                  // }
+                  // if (up.hasClass("w")) {
+                  //     up.removeClass("w");
+                  // }
+                  // if (value.hasClass("vis")) {
+                  //     value.removeClass("vis");
+                  // }
+                  //
+                  // nextLink = undefined;
+                  // backLink = undefined;
               }
           } else {
               if (refElement.position().top <= scrollTopPosition && (refElement.position().top + refElement.height() <= scrollBottomPosition || refElement.position().top + refElement.height() >= scrollBottomPosition)) {
@@ -718,8 +720,13 @@ $(document).ready(function(){
 
                   if (nextLink.length ) {
                       nextRefElement = $(nextLink.attr("href"));
-                      nextHref = nextLink.attr("href");
-                      nextBreadCrumb = $(nextLink).attr("data-breadcrumb");
+                      if (currentLink.is(":last-child") && refElement.position().top + refElement.height() <= scrollTopPosition) {
+                        breadCrumb = 'MORE...';
+                        nextHref = currentLink.attr("href");
+                      } else {
+                        nextHref = nextLink.attr("href");
+                        nextBreadCrumb = $(nextLink).attr("data-breadcrumb");
+                      }
                       if (up.hasClass("vis")) {
                           up.removeClass("vis");
                       }
@@ -739,6 +746,17 @@ $(document).ready(function(){
                       nextRefElement = 'The end';
                       nextHref = '#';
                       //breadCrumb = 'WHERE TO JUMP...';
+                      if (currentLink.is(":last-child")) {
+                          if (!down.hasClass("vis")) {
+                              down.addClass("vis");
+                          }
+                          if (refElement.position().top + refElement.height() <= scrollTopPosition) {
+                            breadCrumb = 'MORE...';
+                            if (!value.hasClass("vis")) {
+                                value.addClass("vis");
+                            }
+                          }
+                      }
                       if (!up.hasClass("vis")) {
                           up.addClass("vis");
                       }
@@ -750,8 +768,13 @@ $(document).ready(function(){
 
                   backLink = $(this).next();
                   if (backLink.length) {
-                      href = backLink.attr("href");
-                      down.attr("href", href);
+                      if (currentLink.is(":last-child") && refElement.position().top + refElement.height() <= scrollTopPosition) {
+                        href = currentLink.attr("href");
+                        down.attr("href", href);
+                      } else {
+                        href = backLink.attr("href");
+                        down.attr("href", href);
+                      }
                       if (down.hasClass("vis")) {
                           down.removeClass("vis");
                       }
@@ -765,23 +788,23 @@ $(document).ready(function(){
                   nextLink = undefined;
                   backLink = undefined;
               } else if (currentLink.is(":last-child") && refElement.position().top + refElement.height() < scrollBottomPosition && refElement.position().top + refElement.height() >= scrollTopPosition) {
-                  if (!up.hasClass("w")) {
-                      up.addClass("w");
-                  }
+                  // if (!up.hasClass("w")) {
+                  //     up.addClass("w");
+                  // }
                   if (value.hasClass("vis")) {
                       value.removeClass("vis");
                   }
                   //breadCrumb = 'MORE...';
               } else if (currentLink.is(":first-child") && refElement.position().top >= scrollTopPosition) {
-                  if (!value.hasClass("vis")) {
-                      value.addClass("vis");
-                  }
+                  // if (!value.hasClass("vis")) {
+                  //     value.addClass("vis");
+                  // }
               }
           }
 
           if (refElement.position().top <= scrollTopPosition && (refElement.position().top + refElement.height() <= scrollBottomPosition || refElement.position().top + refElement.height() >= scrollBottomPosition)) {
               $('.value').attr("data-breadcrumb", breadCrumb);
-          } else if ((currentLink.is(":last-child") && refElement.position().top + refElement.height() <= scrollTopPosition) || (currentLink.is(":first-child") && refElement.position().top >= scrollTopPosition)) {
+          } else if (currentLink.is(":last-child") && refElement.position().top + refElement.height() <= scrollTopPosition) {
               // scroll down after last-child
               $('.value').attr("data-breadcrumb", 'MORE...');
           }
